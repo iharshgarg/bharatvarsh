@@ -11,7 +11,6 @@
 
 <style>
 
-/* ===== ELITE GLOBAL ===== */
 html{scroll-behavior:smooth;}
 
 *{
@@ -45,9 +44,7 @@ font-weight:600;
 letter-spacing:0.5px;
 }
 
-h2{
-color:#d6b25e;
-}
+h2{color:#d6b25e;}
 
 p{color:#bfbfbf;}
 
@@ -77,9 +74,7 @@ padding:14px 0;
 flex-wrap:wrap;
 }
 
-.brand img{
-width:46px;
-}
+.brand img{width:46px;}
 
 .subtitle{
 font-size:13px;
@@ -99,7 +94,7 @@ position:absolute;
 top:-200px;
 left:50%;
 transform:translateX(-50%);
-width:90vw;           /* FIXED MOBILE OVERFLOW */
+width:90vw;
 max-width:700px;
 height:400px;
 background:radial-gradient(circle, rgba(214,178,94,0.18), transparent 70%);
@@ -205,23 +200,31 @@ color:#e0e0e0;
 /* ===== CONTACT ===== */
 .contact{text-align:center;}
 
-/* ===== FLOATING WHATSAPP ===== */
+/* ===== FLOATING WHATSAPP ICON ===== */
 .whatsapp-float{
 position:fixed;
-bottom:20px;
-right:20px;
+bottom:22px;
+right:22px;
+width:58px;
+height:58px;
 background:#25D366;
-color:#000;
-padding:13px 18px;
-border-radius:50px;
-font-weight:bold;
-box-shadow:0 0 15px rgba(0,0,0,0.5);
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 0 20px rgba(0,0,0,0.5);
 z-index:999;
 transition:0.3s;
 }
 
+.whatsapp-float img{
+width:28px;
+height:28px;
+}
+
 .whatsapp-float:hover{
-transform:scale(1.05);
+transform:scale(1.08);
+box-shadow:0 0 25px rgba(37,211,102,0.6);
 }
 
 /* ===== FOOTER ===== */
@@ -345,7 +348,10 @@ and scale operations with practical AI solutions.
 </div>
 </footer>
 
-<a class="whatsapp-float" href="https://wa.me/917778000836" target="_blank">WhatsApp</a>
+<!-- FLOATING WHATSAPP ICON -->
+<a class="whatsapp-float" href="https://wa.me/917778000836" target="_blank">
+<img src="whatsapp.svg" alt="WhatsApp">
+</a>
 
 </body>
 </html>
