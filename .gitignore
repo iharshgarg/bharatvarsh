@@ -1,0 +1,26 @@
+# ===== macOS =====
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon files
+Icon?
+._*
+
+# Thumbnails
+.Spotlight-V100
+.Trashes
+
+# ===== Editor files =====
+.vscode/
+.idea/
+
+# ===== Logs =====
+*.log
+
+# ===== Node / Temp (safe even if not used) =====
+node_modules/
+npm-debug.log*
+
+# ===== System files =====
+Thumbs.db
