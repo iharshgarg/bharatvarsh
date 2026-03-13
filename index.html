@@ -27,7 +27,6 @@ background:#070707;
 color:#f3f3f3;
 line-height:1.6;
 overflow-x:hidden;
-width:100%;
 }
 
 .container{
@@ -37,7 +36,7 @@ margin:auto;
 }
 
 section{
-padding:90px 0;
+padding:60px 0;
 position:relative;
 }
 
@@ -72,11 +71,11 @@ border-bottom:1px solid var(--border);
 display:flex;
 align-items:center;
 gap:14px;
-padding:14px 0;
+padding:12px 0;
 flex-wrap:wrap;
 }
 
-.brand img{width:46px;}
+.brand img{width:44px;}
 
 .subtitle{
 font-size:13px;
@@ -86,41 +85,42 @@ color:#9a9a9a;
 /* HERO */
 .hero{
 text-align:center;
-padding-top:110px;
+padding-top:40px;
+padding-bottom:10px;
 overflow:hidden;
 }
 
 .hero::before{
 content:"";
 position:absolute;
-top:-200px;
+top:-300px;
 left:50%;
 transform:translateX(-50%);
-width:90vw;
-max-width:700px;
-height:400px;
-background:radial-gradient(circle, rgba(214,178,94,0.18), transparent 70%);
+width:85vw;
+max-width:550px;
+height:260px;
+background:radial-gradient(circle, rgba(214,178,94,0.15), transparent 70%);
 filter:blur(60px);
 z-index:-1;
-pointer-events:none;
 }
 
 .hero h1{
-font-size:38px;
-margin-bottom:20px;
-line-height:1.2;
+font-size:26px;
+margin-bottom:12px;
+line-height:1.25;
 }
 
 .hero p{
-max-width:640px;
+max-width:600px;
 margin:auto;
-margin-bottom:30px;
+margin-bottom:16px;
+font-size:15px;
 }
 
 /* BUTTON */
 .btn{
 display:inline-block;
-padding:13px 22px;
+padding:11px 20px;
 margin:6px;
 border-radius:8px;
 border:1px solid var(--gold);
@@ -140,18 +140,18 @@ transform:translateY(-2px);
 
 /* WHATSAPP DEMO */
 .wa-demo{
-padding:40px 0 10px 0;
+padding:20px 0 0 0;
 }
 
 .wa-grid{
 display:flex;
 flex-direction:column;
-gap:40px;
+gap:30px;
 align-items:center;
 }
 
 .wa-video video{
-width:220px;
+width:205px;
 border-radius:16px;
 border:1px solid var(--border);
 box-shadow:0 0 25px rgba(0,0,0,0.6);
@@ -163,15 +163,15 @@ max-width:520px;
 }
 
 .wa-content h2{
-margin-bottom:16px;
+margin-bottom:12px;
 }
 
 .wa-content p{
-margin-bottom:16px;
+margin-bottom:12px;
 }
 
 .wa-points p{
-margin:6px 0;
+margin:5px 0;
 color:#e0e0e0;
 }
 
@@ -180,7 +180,7 @@ color:#e0e0e0;
 display:grid;
 grid-template-columns:1fr;
 gap:30px;
-margin-top:40px;
+margin-top:36px;
 }
 
 .card{
@@ -189,7 +189,6 @@ border:1px solid var(--border);
 border-radius:14px;
 overflow:hidden;
 transition:0.35s;
-position:relative;
 }
 
 .card:hover{
@@ -217,18 +216,18 @@ color:#fff;
 .benefits{text-align:center;}
 
 .benefit-list{
-margin-top:28px;
+margin-top:24px;
 }
 
 .benefit-list p{
-margin:10px 0;
+margin:7px 0;
 color:#e0e0e0;
 }
 
 /* CONTACT */
 .contact{text-align:center;}
 
-/* WHATSAPP FLOAT */
+/* FLOAT */
 .whatsapp-float{
 position:fixed;
 bottom:22px;
@@ -252,7 +251,7 @@ width:28px;
 footer{
 border-top:1px solid var(--border);
 text-align:center;
-padding:40px 0;
+padding:36px 0;
 color:#888;
 font-size:14px;
 }
@@ -260,7 +259,14 @@ font-size:14px;
 /* DESKTOP */
 @media(min-width:900px){
 
-.hero h1{font-size:50px;}
+.hero h1{
+font-size:34px;
+}
+
+.hero{
+padding-top:50px;
+padding-bottom:18px;
+}
 
 .projects-grid{
 grid-template-columns:1fr 1fr;
@@ -273,7 +279,7 @@ gap:80px;
 }
 
 .wa-video video{
-width:280px;
+width:260px;
 }
 
 .wa-content{
@@ -317,7 +323,7 @@ and scale operations with practical AI solutions.
 </div>
 
 <div class="wa-content">
-<h2>AI WhatsApp Autoreply System</h2>
+<h2>WhatsApp AI-Autoreply System</h2>
 
 <p>
 Automatically respond to customer inquiries, capture leads,
