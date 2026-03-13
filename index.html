@@ -8,9 +8,7 @@
 
 <meta name="description" content="Bharatvarsh AI provides AI automation, intelligent chatbots, and autonomous AI agents to help businesses scale faster with modern AI solutions.">
 
-<!-- FIX iPhone blue phone number -->
 <meta name="format-detection" content="telephone=no">
-
 <link rel="icon" type="image/png" href="logo.png">
 
 <style>
@@ -60,7 +58,7 @@ a{text-decoration:none;}
 --border:#202020;
 }
 
-/* ===== HEADER ===== */
+/* HEADER */
 header{
 position:sticky;
 top:0;
@@ -85,7 +83,7 @@ font-size:13px;
 color:#9a9a9a;
 }
 
-/* ===== HERO ===== */
+/* HERO */
 .hero{
 text-align:center;
 padding-top:110px;
@@ -119,7 +117,7 @@ margin:auto;
 margin-bottom:30px;
 }
 
-/* ===== BUTTONS ===== */
+/* BUTTON */
 .btn{
 display:inline-block;
 padding:13px 22px;
@@ -140,7 +138,44 @@ box-shadow:
 transform:translateY(-2px);
 }
 
-/* ===== PROJECT CARDS ===== */
+/* WHATSAPP DEMO */
+.wa-demo{
+padding:40px 0 10px 0;
+}
+
+.wa-grid{
+display:flex;
+flex-direction:column;
+gap:40px;
+align-items:center;
+}
+
+.wa-video video{
+width:220px;
+border-radius:16px;
+border:1px solid var(--border);
+box-shadow:0 0 25px rgba(0,0,0,0.6);
+}
+
+.wa-content{
+text-align:center;
+max-width:520px;
+}
+
+.wa-content h2{
+margin-bottom:16px;
+}
+
+.wa-content p{
+margin-bottom:16px;
+}
+
+.wa-points p{
+margin:6px 0;
+color:#e0e0e0;
+}
+
+/* PROJECTS */
 .projects-grid{
 display:grid;
 grid-template-columns:1fr;
@@ -156,17 +191,6 @@ overflow:hidden;
 transition:0.35s;
 position:relative;
 }
-
-.card::after{
-content:"";
-position:absolute;
-inset:0;
-background:radial-gradient(circle at top, rgba(214,178,94,0.12), transparent 60%);
-opacity:0;
-transition:0.4s;
-}
-
-.card:hover::after{opacity:1;}
 
 .card:hover{
 transform:translateY(-8px);
@@ -189,7 +213,7 @@ margin-bottom:12px;
 color:#fff;
 }
 
-/* ===== BENEFITS ===== */
+/* BENEFITS */
 .benefits{text-align:center;}
 
 .benefit-list{
@@ -201,10 +225,10 @@ margin:10px 0;
 color:#e0e0e0;
 }
 
-/* ===== CONTACT ===== */
+/* CONTACT */
 .contact{text-align:center;}
 
-/* ===== FLOATING WHATSAPP ICON ===== */
+/* WHATSAPP FLOAT */
 .whatsapp-float{
 position:fixed;
 bottom:22px;
@@ -218,20 +242,13 @@ align-items:center;
 justify-content:center;
 box-shadow:0 0 20px rgba(0,0,0,0.5);
 z-index:999;
-transition:0.3s;
 }
 
 .whatsapp-float img{
 width:28px;
-height:28px;
 }
 
-.whatsapp-float:hover{
-transform:scale(1.08);
-box-shadow:0 0 25px rgba(37,211,102,0.6);
-}
-
-/* ===== FOOTER ===== */
+/* FOOTER */
 footer{
 border-top:1px solid var(--border);
 text-align:center;
@@ -240,15 +257,27 @@ color:#888;
 font-size:14px;
 }
 
-/* ===== DESKTOP ===== */
-@media(min-width:768px){
+/* DESKTOP */
+@media(min-width:900px){
 
-.hero h1{
-font-size:50px;
-}
+.hero h1{font-size:50px;}
 
 .projects-grid{
 grid-template-columns:1fr 1fr;
+}
+
+.wa-grid{
+flex-direction:row;
+justify-content:center;
+gap:80px;
+}
+
+.wa-video video{
+width:280px;
+}
+
+.wa-content{
+text-align:left;
 }
 
 }
@@ -260,7 +289,7 @@ grid-template-columns:1fr 1fr;
 
 <header>
 <div class="container brand">
-<img src="logo.png" alt="Bharatvarsh AI Logo">
+<img src="logo.png">
 <div>
 <h2>Bharatvarsh AI</h2>
 <div class="subtitle">AI & Automation Services</div>
@@ -275,44 +304,74 @@ Helping businesses automate workflows, build intelligent assistants,
 and scale operations with practical AI solutions.
 </p>
 
-<a href="#projects" class="btn">View Projects</a>
 <a href="#contact" class="btn">Free AI Workflow Audit</a>
 </section>
 
+<section class="wa-demo">
+<div class="container wa-grid">
+
+<div class="wa-video">
+<video autoplay muted loop playsinline>
+<source src="whatsapp-demo.mp4" type="video/mp4">
+</video>
+</div>
+
+<div class="wa-content">
+<h2>AI WhatsApp Autoreply System</h2>
+
+<p>
+Automatically respond to customer inquiries, capture leads,
+share information and stay available 24/7 using intelligent AI automation.
+</p>
+
+<div class="wa-points">
+<p>✔ Instant automated replies</p>
+<p>✔ Lead capture & qualification</p>
+<p>✔ Smart conversation handling</p>
+<p>✔ Works round the clock</p>
+</div>
+
+<a href="#contact" class="btn">Get WhatsApp AI Setup</a>
+
+</div>
+
+</div>
+</section>
+
 <section id="projects" class="container">
-<h2>Projects & Capabilities</h2>
+<h2>Other Custom AI Solutions</h2>
 
 <div class="projects-grid">
 
 <div class="card">
-<img src="chatbot.png" alt="AI Chatbot for customer interaction">
+<img src="chatbot.png">
 <div class="card-content">
 <h3>Intelligent AI Chatbot</h3>
-<p>An intelligent chatbot that automates customer and employee queries and delivers accurate responses 24/7 using advanced AI knowledge retrieval.</p>
+<p>Automates customer and employee queries using AI knowledge systems.</p>
 </div>
 </div>
 
 <div class="card">
-<img src="email-agent.png" alt="AI Email Automation Agent">
+<img src="email-agent.png">
 <div class="card-content">
 <h3>Smart Email Automation Agent</h3>
-<p>Automatically sends personalized emails to customers and employees based on triggers and workflow events.</p>
+<p>Sends personalized emails automatically based on workflow triggers.</p>
 </div>
 </div>
 
 <div class="card">
-<img src="web-agent.png" alt="Autonomous Web AI Agent">
+<img src="web-agent.png">
 <div class="card-content">
-<h3>Fully Autonomous Web AI Agent</h3>
-<p>A true AI agent that can browse websites, gather insights, and complete online tasks while you focus on strategic work.</p>
+<h3>Autonomous Web AI Agent</h3>
+<p>AI agent that browses websites and completes online operational tasks.</p>
 </div>
 </div>
 
 <div class="card">
-<img src="file-agent.png" alt="AI File Organizer Assistant">
+<img src="file-agent.png">
 <div class="card-content">
 <h3>AI File Organizer Assistant</h3>
-<p>Smart AI assistant that organizes, categorizes, and structures your files so you can find what you need instantly.</p>
+<p>Organizes and structures files intelligently for faster access.</p>
 </div>
 </div>
 
@@ -336,7 +395,7 @@ and scale operations with practical AI solutions.
 
 <br>
 
-<a class="btn" href="https://wa.me/917778000836?text=Hello%20Bharatvarsh%2C%20I%27m%20interested%20in%20AI%20automation%20solutions.%20Let%27s%20discuss." target="_blank">WhatsApp</a>
+<a class="btn" href="https://wa.me/917778000836" target="_blank">WhatsApp</a>
 <a class="btn" href="tel:+917778000836">Call</a>
 <a class="btn" href="mailto:contact@bharatvarshai.com">Email</a>
 <a class="btn" href="https://www.linkedin.com/company/bharat-varsh" target="_blank">LinkedIn</a>
@@ -352,8 +411,8 @@ and scale operations with practical AI solutions.
 </div>
 </footer>
 
-<a class="whatsapp-float" href="https://wa.me/917778000836?text=Hello%20Bharatvarsh%2C%20I%27m%20interested%20in%20AI%20automation%20solutions.%20Let%27s%20discuss." target="_blank">
-<img src="whatsapp.svg" alt="WhatsApp">
+<a class="whatsapp-float" href="https://wa.me/917778000836" target="_blank">
+<img src="whatsapp.svg">
 </a>
 
 </body>
