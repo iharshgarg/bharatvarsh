@@ -2,58 +2,109 @@
 <html>
 <head>
     <title>WhatsApp Signup</title>
-</head>
-<body>
-    <h2>Connect your WhatsApp Business Account</h2>
-    <button onclick="launchWhatsAppSignup()" style="background-color: #25D366; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
-        Login with Facebook
-    </button>
 
-    <script>
-        // Initialize the Facebook SDK
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId      : '1413646157069893', // Your App ID
-                cookie     : true,
-                xfbml      : true,
-                version    : 'v21.0'
-            });
-        };
-
-        // Load the SDK script
-        (function(d, s, id){
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {return;}
-            js = d.createElement(s); js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-
-        function launchWhatsAppSignup() {
-            FB.login(function (response) {
-                if (response.authResponse) {
-                    // *** THIS IS THE AUTHORIZATION CODE YOU ARE LOOKING FOR ***
-                    const code = response.authResponse.code;
-                    
-                    console.log("Found the Code:", code);
-                    alert("Authorization Code Received: " + code);
-
-                    // Step 3: Send this 'code' to your server via an API call
-                    // fetch('/your-backend-api', { method: 'POST', body: JSON.stringify({ code: code }) });
-                    
-                } else {
-                    console.log('User cancelled or did not fully authorize.');
-                }
-            }, {
-                config_id: '1623515212298214', // Your Configuration ID
-                response_type: 'code',        // Mandatory to get the 'code'
-                override_default_response_type: true,
-                extras: {
-                    "featureType": "whatsapp_business_app_onboarding",
-                    "sessionInfoVersion": "3"
-                }
-            });
+    <style>
+        body {
+            font-family: Arial;
+            padding: 40px;
         }
-    </script>
+
+        .btn {
+            background-color: #25D366;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .code-box {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background: #f7f7f7;
+            display: none;
+        }
+
+        .copy-btn {
+            margin-left: 10px;
+            padding: 6px 12px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Connect your WhatsApp Business Account</h2>
+
+<button class="btn" onclick="launchWhatsAppSignup()">
+    Login with Facebook
+</button>
+
+<div id="codeContainer" class="code-box">
+    <strong>Authorization Code:</strong>
+    <span id="authCode"></span>
+    <button class="copy-btn" onclick="copyCode()">Copy</button>
+</div>
+
+<script>
+window.fbAsyncInit = function() {
+    FB.init({
+        appId      : '1413646157069893',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v21.0'
+    });
+};
+
+(function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+function launchWhatsAppSignup() {
+    FB.login(function (response) {
+
+        if (response.authResponse) {
+
+            const code = response.authResponse.code;
+
+            // Show on page
+            document.getElementById("authCode").innerText = code;
+            document.getElementById("codeContainer").style.display = "block";
+
+        } else {
+            alert("User cancelled or did not authorize.");
+        }
+
+    }, {
+        config_id: '1623515212298214',
+        response_type: 'code',
+        override_default_response_type: true,
+        extras: {
+            "featureType": "whatsapp_business_app_onboarding",
+            "sessionInfoVersion": "3"
+        }
+    });
+}
+
+function copyCode() {
+    const code = document.getElementById("authCode").innerText;
+
+    navigator.clipboard.writeText(code)
+        .then(() => {
+            alert("Code copied!");
+        })
+        .catch(err => {
+            alert("Failed to copy");
+        });
+}
+</script>
+
 </body>
 </html>
