@@ -74,7 +74,23 @@ function launchWhatsAppSignup() {
 
             const code = response.authResponse.code;
 
-            // Show on page
+            // ✅ Send auth code to backend automatically
+            fetch("https://bharatvarsh-ai-production.up.railway.app/receive-auth-code", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ code: code })
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log("Auth code sent to backend:", data);
+            })
+            .catch(err => {
+                console.error("Error sending auth code:", err);
+            });
+
+            // Optional: show code on page
             document.getElementById("authCode").innerText = code;
             document.getElementById("codeContainer").style.display = "block";
 
