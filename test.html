@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>WhatsApp Signup</title>
+    <title>Connect WhatsApp</title>
 
     <style>
         body {
@@ -12,25 +12,17 @@
         .btn {
             background-color: #25D366;
             color: white;
-            padding: 10px 20px;
+            padding: 12px 22px;
             border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .code-box {
-            margin-top: 20px;
-            padding: 15px;
-            border: 1px solid #ddd;
             border-radius: 6px;
-            background: #f7f7f7;
-            display: none;
+            cursor: pointer;
+            font-size: 16px;
         }
 
-        .copy-btn {
-            margin-left: 10px;
-            padding: 6px 12px;
-            cursor: pointer;
+        .status {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #444;
         }
     </style>
 </head>
@@ -40,14 +32,10 @@
 <h2>Connect your WhatsApp Business Account</h2>
 
 <button class="btn" onclick="launchWhatsAppSignup()">
-    Login with Facebook
+    Connect WhatsApp
 </button>
 
-<div id="codeContainer" class="code-box">
-    <strong>Authorization Code:</strong>
-    <span id="authCode"></span>
-    <button class="copy-btn" onclick="copyCode()">Copy</button>
-</div>
+<div id="status" class="status"></div>
 
 <script>
 window.fbAsyncInit = function() {
@@ -68,13 +56,17 @@ window.fbAsyncInit = function() {
 }(document, 'script', 'facebook-jssdk'));
 
 function launchWhatsAppSignup() {
+
+    document.getElementById("status").innerText = "Opening Facebook login...";
+
     FB.login(function (response) {
 
         if (response.authResponse) {
 
             const code = response.authResponse.code;
 
-            // ✅ Send auth code to backend automatically
+            document.getElementById("status").innerText = "Starting onboarding process...";
+
             fetch("https://bharatvarsh-ai-production.up.railway.app/receive-auth-code", {
                 method: "POST",
                 headers: {
@@ -84,18 +76,17 @@ function launchWhatsAppSignup() {
             })
             .then(res => res.json())
             .then(data => {
-                console.log("Auth code sent to backend:", data);
+                document.getElementById("status").innerText =
+                    "✅ Your onboarding process has started. Our representative will guide you further. You can close this page now.";
             })
             .catch(err => {
-                console.error("Error sending auth code:", err);
+                document.getElementById("status").innerText =
+                    "❌ Something went wrong. Please try again.";
             });
 
-            // Optional: show code on page
-            document.getElementById("authCode").innerText = code;
-            document.getElementById("codeContainer").style.display = "block";
-
         } else {
-            alert("User cancelled or did not authorize.");
+            document.getElementById("status").innerText =
+                "Login cancelled.";
         }
 
     }, {
@@ -107,18 +98,6 @@ function launchWhatsAppSignup() {
             "sessionInfoVersion": "3"
         }
     });
-}
-
-function copyCode() {
-    const code = document.getElementById("authCode").innerText;
-
-    navigator.clipboard.writeText(code)
-        .then(() => {
-            alert("Code copied!");
-        })
-        .catch(err => {
-            alert("Failed to copy");
-        });
 }
 </script>
 
